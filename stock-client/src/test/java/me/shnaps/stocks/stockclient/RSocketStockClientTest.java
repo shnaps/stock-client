@@ -21,11 +21,11 @@ class RSocketStockClientTest {
 		RSocketStockClient rSocketStockClient = new RSocketStockClient(createRSocketRequester());
 		Flux<StockPrice> prices = rSocketStockClient.pricesFor("SYMBOL");
 		StepVerifier.create(prices.take(5))
-				.expectNextMatches(stockPrice -> stockPrice.getSymbol().equals("SYMBOL"))
-				.expectNextMatches(stockPrice -> stockPrice.getSymbol().equals("SYMBOL"))
-				.expectNextMatches(stockPrice -> stockPrice.getSymbol().equals("SYMBOL"))
-				.expectNextMatches(stockPrice -> stockPrice.getSymbol().equals("SYMBOL"))
-				.expectNextMatches(stockPrice -> stockPrice.getSymbol().equals("SYMBOL"))
+				.expectNextMatches(stockPrice -> stockPrice.symbol().equals("SYMBOL"))
+				.expectNextMatches(stockPrice -> stockPrice.symbol().equals("SYMBOL"))
+				.expectNextMatches(stockPrice -> stockPrice.symbol().equals("SYMBOL"))
+				.expectNextMatches(stockPrice -> stockPrice.symbol().equals("SYMBOL"))
+				.expectNextMatches(stockPrice -> stockPrice.symbol().equals("SYMBOL"))
 				.verifyComplete();
 	}
 }

@@ -25,7 +25,7 @@ public class WebClientStockClient implements StockClient {
 				.uri("http://localhost:8080/stocks/{symbol}", symbol)
 				.retrieve()
 				.bodyToFlux(StockPrice.class)
-				.retryBackoff(5, Duration.ofSeconds(1), Duration.ofSeconds(20)).
-						doOnError(IOException.class, e -> logger.error(e.getMessage()));
+				.retryBackoff(5, Duration.ofSeconds(1), Duration.ofSeconds(20))
+				.doOnError(IOException.class, e -> logger.error(e.getMessage()));
 	}
 }

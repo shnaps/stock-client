@@ -16,6 +16,6 @@ class WebClientStockClientTest {
 		Assertions.assertNotNull(prices);
 		Flux<StockPrice> fivePrices = prices.take(5);
 		Assertions.assertEquals(5, fivePrices.count().block());
-		Assertions.assertEquals("SYMBOL", fivePrices.blockFirst().getSymbol());
+		Assertions.assertEquals("SYMBOL", fivePrices.blockFirst().symbol());
 	}
 }
