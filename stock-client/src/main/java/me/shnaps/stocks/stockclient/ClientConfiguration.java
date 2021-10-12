@@ -30,6 +30,6 @@ public class ClientConfiguration {
 
 	@Bean
 	public RSocketRequester rSocketRequester(RSocketRequester.Builder builder) {
-		return builder.connectTcp("localhost", 7000).block();
+		return builder.tcp("localhost", 7000);
 	}
 }

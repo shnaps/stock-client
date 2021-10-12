@@ -23,7 +23,8 @@ public class RSocketStockClient implements StockClient {
 		return rSocketRequester.route("stockPrices")
 				.data(symbol)
 				.retrieveFlux(StockPrice.class)
-				.retryBackoff(5, Duration.ofSeconds(1), Duration.ofSeconds(20)).
-						doOnError(IOException.class, e -> logger.error(e.getMessage()));
+				.retry(4)
+				.doOnError(IOException.class, e -> logger.error(e.getMessage()));
 	}
+
 }
